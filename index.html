@@ -1,0 +1,673 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-45131220-42', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+    <meta name="viewport" content="width=device-width">
+    <title>EDUMATE | SRI SAIRAM ENGINEERING COLLEGE</title>
+
+    <link href="StudentPortal_CSS/font-awesome.min.css" rel="stylesheet">
+   
+    <link href="StudentPortal_CSS/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <script src="Scripts/jquery-2.1.0.min.js"></script>
+
+ 
+ 
+    
+
+      <link href="StudentPortal_CSS/ace-rtl.min.css" rel="stylesheet" type="text/css">
+      <link href="StudentPortal_CSS/jquery.gritter.css" rel="stylesheet" type="text/css">
+ 
+    <style>
+        .logo-container {
+            margin-top: 10px;
+            padding:0px 0px 0px 80px;
+        }
+
+       
+
+        .edu-login-box, .edu-forgot-box {
+            margin-top: 40px;
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 2px;
+            box-shadow: 0px 0px 3px #000;
+            position: absolute;
+            transform: scale(0, 1) translate(-150px);
+            visibility: hidden;
+        }
+
+        .toggle-box.visible {
+            display: block;
+            transform: scale(1, 1) translate(0px);
+            transition: all 0.3s ease 0s;
+            visibility: visible;
+        }
+
+        .client-logo {
+            text-align: center;
+        }
+
+        .client-name h1, .forgot-name h1 {
+            font-size: 17px;
+            font-family: "Open sans condensed",arial, tahoma,verdana;
+            color: #000;
+            text-align: center;
+        }
+
+        .forgot-name h1 {
+            font-family: "Open sans",arial, tahoma,verdana;
+            font-weight: 200;
+        }
+
+        .client-login input.input-text {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #7d7d7d;
+        }
+
+        .client-login input.input-text {
+            margin-bottom: 10px;
+            padding: 8px 5px 10px 41px;
+           
+        }
+
+        .client-login .input-text.even {
+            border-top: 1px solid #7d7d7d;
+           
+        }
+
+        .client-login input.input-button {
+            background: none repeat scroll 0 0 #bd2025;
+            border: 1px solid #c5464a;
+            color: #fff;
+            margin-top: 7px;
+            padding: 12px 5px;
+            text-align: center;
+            transition: all 0.5s ease 0s;
+            width: 100%;
+        }
+
+            .client-login input.input-button:hover {
+                background: #333;
+                border: 1px solid #000;
+            }
+
+        .misc-links {
+            font-size: 12px;
+        }
+
+            .misc-links .checkbox {
+                line-height: 22px;
+            }
+
+            .misc-links .forgot-link {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: right;
+                line-height: 22px;
+            }
+
+                .misc-links .forgot-link a, .misc-links .checkbox {
+                    color: #393939;
+                }
+
+        .footer-bar {
+            background: rgba(0,0,0,0.8);
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            padding: 0px;
+            height: 30px;
+        }
+
+     
+
+
+            .footer-bar label {
+                font-size: 12px;
+                color: #999;
+                margin: 0px;
+                line-height: 30px;
+            }
+       
+
+        .footer-logo-area span {
+            color: #fff;
+            font-size: 12px;
+            line-height: 30px;
+        }
+
+        #backImg {
+           
+            background: url( Wallpaper/111.jpg) top right no-repeat;
+
+        }
+
+        .icon-user {
+           
+            background: #f3f2f2 url( StudentPortal_Images/user-icon.png) center left no-repeat;
+        }
+
+        .icon-password {
+            
+        background: #f3f2f2 url(StudentPortal_Images/password.png) center left no-repeat;
+        }
+
+        .icon-email {
+            
+        
+        background: #f3f2f2 url(StudentPortal_Images/email-icon.png) center left no-repeat;
+        }
+
+        .icon-rpassword {
+            
+        background: url(StudentPortal_Images/password.png) center left no-repeat;
+            padding-left: 40px;
+            text-align: left !important;
+            border-bottom: 1px solid #393939;
+            line-height: 40px;
+            margin-top: 0px;
+            margin-bottom: 20px;
+        }
+
+        .client-login input.input-text-email {
+            border-color: #ccc;
+        }
+
+            .client-login input.input-text-email:focus {
+                border-color: #F60;
+            }
+
+        .back-to-login {
+            margin: 20px -20px -20px -20px;
+            padding: 12px;
+            background: #333;
+            border-radius: 0 0 2px 2px;
+            border-top: 1px solid #999;
+        }
+
+            .back-to-login a {
+                color: #fff;
+                transition: all 0.5s;
+            }
+
+                .back-to-login a:hover {
+                    color: #F60;
+                }
+
+
+        .clsExtn {
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+            border: medium none;
+            font-size: 18px;
+            font-weight: 100;
+            pointer-events: none;
+            width: 40%;
+        }
+
+        .footer-logo-area span{
+        vertical-align:middle;
+        }
+
+        .loginradio {
+    font-size: 18px;
+     
+    padding-left: 0px;
+   
+}
+
+
+        .loginradiobutton {
+   
+}
+        
+ 
+         .usernametextboxstudent {
+   width:100% !important;
+}
+        .usernametextboxstaff {
+   width:58% !important;
+}
+
+
+    </style>
+
+
+    <style>
+        /* jquery gritter */
+.gritter-item-wrapper {
+  background-image: none !important;
+  box-shadow: 0 2px 10px rgba(50, 50, 50, 0.5);
+  background: rgba(50, 50, 50, 0.92);
+}
+.gritter-item-wrapper.gritter-info {
+  background: rgba(49, 81, 133, 0.92);
+}
+.gritter-item-wrapper.gritter-error {
+  background: rgba(153, 40, 18, 0.92);
+}
+.gritter-item-wrapper.gritter-success {
+  background: rgba(89, 131, 75, 0.92);
+}
+.gritter-item-wrapper.gritter-warning {
+  background: rgba(190, 112, 31, 0.92);
+}
+.gritter-item-wrapper.gritter-light {
+  background: rgba(245, 245, 245, 0.95);
+  border: 1px solid #BBB;
+}
+.gritter-item-wrapper.gritter-light.gritter-info {
+  background: rgba(232, 242, 255, 0.95);
+}
+.gritter-item-wrapper.gritter-light.gritter-info .gritter-item {
+  color: #4A577D;
+}
+.gritter-item-wrapper.gritter-light.gritter-error {
+  background: rgba(255, 235, 235, 0.95);
+}
+.gritter-item-wrapper.gritter-light.gritter-error .gritter-item {
+  color: #894A38;
+}
+.gritter-item-wrapper.gritter-light.gritter-success {
+  background: rgba(239, 250, 227, 0.95);
+}
+.gritter-item-wrapper.gritter-light.gritter-success .gritter-item {
+  color: #416131;
+}
+.gritter-item-wrapper.gritter-light.gritter-warning {
+  background: rgba(252, 248, 227, 0.95);
+}
+.gritter-item-wrapper.gritter-light.gritter-warning .gritter-item {
+  color: #946446;
+}
+.gritter-item p {
+  line-height: 1.8;
+}
+.gritter-top,
+.gritter-bottom,
+.gritter-item {
+  background-image: none;
+}
+.gritter-close {
+  left: auto;
+  right: 3px;
+  background-image: none;
+  width: 18px;
+  height: 18px;
+  line-height: 17px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  color: #E17B67;
+}
+.gritter-close:before {
+  font-family: FontAwesome;
+  font-size: 16px;
+  content: "\f00d";
+}
+.gritter-info .gritter-close {
+  color: #FFA500;
+}
+.gritter-error .gritter-close,
+.gritter-success .gritter-close,
+.gritter-warning .gritter-close {
+  color: #FFEA07;
+}
+.gritter-close:hover {
+  color: #FFF !important;
+}
+.gritter-title {
+  text-shadow: none;
+}
+.gritter-light .gritter-item,
+.gritter-light .gritter-bottom,
+.gritter-light .gritter-top,
+.gritter-light .gritter-close {
+  background-image: none;
+  color: #444;
+}
+.gritter-light .gritter-title {
+  text-shadow: none;
+}
+.gritter-light .gritter-close:hover {
+  color: #8A3104 !important;
+}
+.gritter-center {
+  position: fixed;
+  left: 33%;
+  right: 33%;
+  top: 33%;
+}
+@media only screen and (max-width: 767px) {
+  .gritter-center {
+    left: 16%;
+    right: 16%;
+    top: 30%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .gritter-center {
+    left: 30px;
+    right: 30px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .gritter-center {
+    left: 10px;
+    right: 10px;
+  }
+}
+    </style>
+
+</head>
+<body id="backImg">
+    <form action="/" method="post"><input name="__RequestVerificationToken" type="hidden" value="Xq5aNyw2wzO1D0IKZGmnrZ4X4RrrgBwQR-fRurFsM24jHy3Ct3KXFyYMHHr2zu75KgElZPz-cUXvpfrQ2ejf7o9gN_h6FSAxy_sffkd5c2s1">
+    <div class="container">
+
+        <input id="Locked" name="Locked" type="hidden" value="">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 logo-container">
+                
+                <img src="StudentPortal_Images/edumate.png">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-7 col-xs-9">
+                <div class="edu-login-box toggle-box visible" id="login-box" data-id="forgot-box">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 client-logo">
+                            <img src="StudentPortal_Images/SEC-Logo-Login.png" width="73" height="73">
+                          
+                             
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 client-name">
+                            <h1>SRI SAIRAM ENGINEERING COLLEGE</h1>
+                          
+
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+
+                            <div class="loginradio">
+                                <label>
+                                    <input type="radio" class="loginradiobutton" value="Staff" checked="" name="LoginUserType">
+                                    <span class="">Staff</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+
+                            <div class="loginradio" id="studentloninrdio">
+                                <label>
+                                    <input type="radio" class="loginradiobutton" value="Student" name="LoginUserType">
+                                    <span class="">Student</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 client-login">
+
+                            <input placeholder="Username" class="input-text icon-user usernametextboxstaff" data-val="true" data-val-required="The User Name  field is required." id="UserName" name="UserName" type="text" value="">
+                            <input id="Extension" type="text" value="@sairam.edu.in" name="ExtensionName" class="clsExtn" tabindex="1">
+                            
+                            <input placeholder="Password" class="input-text even icon-password" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password">
+                            
+                            <input type="Submit" class="input-button" name="Submit" value="Login">
+                        </div>
+                    </div>
+
+
+                    <div class="row misc-links">
+                        <div class="col-lg-7 col-md-6 col-sm-6 col-xs-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true"><input name="RememberMe" type="hidden" value="false"> Remember?
+                                </label>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6 forgot-link">
+                            <a id="Forgotid" href="#" class="toggler">Forgot your password?</a>
+
+                         
+                        </div>
+                    </div>
+                    <div class="span12">
+                        <div style="color: #C93E24">
+                            
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="edu-forgot-box toggle-box" id="forgot-box" data-id="login-box">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 forgot-name">
+                            <h1 class="icon-rpassword"><span id="spforgotheader">Retrieve Password </span></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 client-login">
+                            <input id="txtEmailID" name="email" type="text" placeholder="Username" class="input-text icon-user" tabindex="5">
+                            
+                            <input type="button" id="btnPwdReset" value="Send Me" class="input-button">
+
+                            
+                        </div>
+                    </div>
+                    <div class="row misc-links">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="back-to-login">
+                                <a href="#" class="toggler">Back to login</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+    </div></form>
+
+    <div class="footer-bar">
+        <div class="container">
+            <div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 text-left">
+                
+                <div class="form-group">
+
+                    <div class="col-lg-9 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                <label>�  For support  �  </label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <label><i class="icon-envelope"></i>� sportal@itechindia.co</label>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 text-right footer-logo-area">
+                <span>Powered by</span>
+
+                <a href="https://itechindia.co/" title="iTech India Private Limited" target="_blank">
+                    <img src="StudentPortal_Images/itech-footer-logo.png"></a>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+<script type="text/javascript">
+
+
+    function actionPopUp(txt, cls) {
+
+        $("#gritter-notice-wrapper").remove();
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+            title: 'Login',
+            // (string | mandatory) the text inside the notification
+            text: txt,
+            class_name: 'gritter-' + cls
+        });
+        return false;
+    };
+
+
+    $(document).ready(function () {
+        // alert('Msg');
+
+     
+
+        var StudentLoginDisable= $('#Locked').val();
+        if (StudentLoginDisable == 'Yes') {
+            $('#studentloninrdio').hide();
+        }
+     
+
+
+        $(".toggler").on("click", function (event) {
+            var thisid = $(this).parents("div.toggle-box").attr("data-id");
+            $(".toggle-box").removeClass('visible');
+            $("#" + thisid).addClass('visible');
+            event.preventDefault();
+        });
+
+
+
+        var Msg = '';
+        var cls = '';
+
+        if (Msg != "") {
+            actionPopUp(Msg, cls);
+        }
+
+
+
+        $('#btnPwdReset').on("click", function (event) {
+            PwdRest();
+        });
+
+
+
+        $('#Forgotid').click(function () {
+
+            $('#spforgotheader').text($("input[name=LoginUserType]:checked").val() + ' ' + 'Retrieve Password');
+        });
+
+
+        $('input[type=radio][name=LoginUserType]').change(function () {
+
+
+            if (this.value == 'Staff') {
+                $('#UserName').removeClass('usernametextboxstudent');
+                $('#UserName').addClass('usernametextboxstaff');
+                $('#Extension').show();
+
+            }
+            else {
+                $('#UserName').removeClass('usernametextboxstaff');
+                $('#UserName').addClass('usernametextboxstudent');
+                $('#Extension').hide();
+            }
+        });
+
+        //$('#Button1').click(function (event) {
+        //    PwdRest();
+        //});
+
+        //  });
+
+
+        function PwdRest() {
+
+            if ($('#txtEmailID').val() != null && $('#txtEmailID').val() != "") {
+                $.ajax(
+                    {
+                        type: "POST",
+                        url: '/' + "Login/ForgetPassword",
+                        data: "EmailID=" + $('#txtEmailID').val(),
+                        dataType: "json",
+
+                        success: function (data) {
+
+                            alert(data);
+                            $('#txtEmailID').val("")
+                            var thisid = "login-box";
+                            $(".toggle-box").removeClass('visible');
+                            $("#" + thisid).addClass('visible');
+                        }
+                    });
+            }
+            else {
+                $('#txtEmailID').focus();
+            }
+        }
+
+        $('#txtEmailID').keydown(function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+            }
+        });
+
+        $('#btnsend').on("click", function (event) {
+            TestMail();
+        });
+
+
+        function TestMail() {
+
+            $.ajax(
+                {
+                    type: "POST",
+                    url: '/' + "Login/TestMail",
+                    dataType: "json",
+
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+        }
+    });
+
+
+</script>
+
+  
+
+
+</body></html>
